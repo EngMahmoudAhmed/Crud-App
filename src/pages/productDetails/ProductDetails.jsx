@@ -24,7 +24,8 @@ const ProductDetails = () => {
         <div>
             <h3>Product Details{productId}</h3>
             
-            <h1>{ product.title}</h1>
+            <h1>{product.title}</h1>
+            <img src={product.img} alt="" />
                 
         </div>
     )
