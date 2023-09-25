@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Products = () => {
     const fetchapi = "http://localhost:9000/products";
@@ -17,21 +18,7 @@ const Products = () => {
         }
         newProducts();
     }, []);
-    console.log(products);
-
-
-    // products.map((product) => {
-    //     return () => {
-    //         <>
-
-
-    //         </>
-    //     }
-
-
-
-    
-
+    // console.log();
 
     return (
         <>
@@ -41,7 +28,7 @@ const Products = () => {
                 <thead>
                     <tr>
                         <td>id</td>
-                        <td>Titele</td>
+                        <td>description</td>
                         <td>Price</td>
                         <td>Operation</td>
                     </tr>
@@ -50,15 +37,14 @@ const Products = () => {
                     {
                         products.map((product) => {
                             return (
-                                <tr>
-                                    <td>{product.id}</td>
-                                    <td>{product.category}</td>
+                                <tr key={product.id}>
+                                    <td>{product.id }</td>
+                                    <td>{product.description.substring(0,12)}</td>
                                     <td>{product.price}</td>
-                                    <td>Operation</td>
                                     <td>
-                                        <button className='btn btn-outline-dark me-2 btn-sm'>delete</button>
-                                        <button className='btn btn-outline-success me-2 btn-sm'>Edite</button>
-                                        <button className='btn btn-outline-danger me-2 btn-sm'>View</button>
+                                        <button className='btn btn-outline-primary me-2 btn-sm'>delete</button>
+                                        <button className='btn btn-outline-info me-2 btn-sm'>Edite</button>
+                                        <Link className='btn btn-outline-danger me-2 btn-sm' to={`/products/${product.id}`}>View</Link>
                                     </td>
                                 </tr>
                             )

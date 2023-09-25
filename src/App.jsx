@@ -5,6 +5,7 @@ import './App.css'
 import { Route, Routes } from "react-router-dom"
 import Products from "./pages/Products/Products"
 import AddProduct from "./pages/addproduct/AddProduct"
+import ProductDetails from "./pages/productDetails/ProductDetails"
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
         <div className="col-10">
           <Routes>
             <Route path='/products' element={<Products />} />
-              <Route path="/Addproduct" element={ <AddProduct />} />
+            <Route path="/Addproduct" element={<AddProduct />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
           </Routes>
         </div>
       </div>
